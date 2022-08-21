@@ -10,7 +10,7 @@ async function buildWidget() {
     widget.backgroundImage = await loadImage(await imageUrl(Url));
     
     
-    const wheader = widget.addText("Rust Preis");
+    const wheader = widget.addText("Preis:");
     
     wheader.font = Font.mediumRoundedSystemFont(20); 
     wheader.centerAlignText();
