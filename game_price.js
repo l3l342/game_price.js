@@ -11,11 +11,8 @@ Script.complete();
 async function buildWidget() {
     let widget = new ListWidget();
     widget.backgroundColor = Color.black();
-
-    // hier schwiering wegen lending
     
     const price = await getPrice();
-    
     let wprice = await widget.addText(price);
   
     wprice.font = Font.mediumRoundedSystemFont(detailFontSize);
