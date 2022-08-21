@@ -1,26 +1,25 @@
-import fetch from "node-fetch";
-
 let detailFontSize = 20;
 let statusFontSize = 10;
 let detailColor = Color.white();
 
-let widget = buildWidget();
+let widget = await buildWidget();
 
 Script.setWidget(widget);
-widget.presentSmall();
+widget.presentSmall()
 Script.complete();
 
-function buildWidget() {
+async function buildWidget() {
     let widget = new ListWidget();
     widget.backgroundColor = Color.black();
 
-    const price = getPrice();
-
-    let wprice = price.then(price => {widget.addText(price)});
-
+    // hier schwiering wegen lending
+    
+    const price = await getPrice();
+    
+    let wprice = await widget.addText(price);
+  
     wprice.font = Font.mediumRoundedSystemFont(detailFontSize);
     wprice.textcolor = detailColor;
-    wprice.centerAllignText();
 
     return widget;
 }
